@@ -1,0 +1,70 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+.env/
+.venv/
+env/
+venv/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+
+# Test outputs
+allure-results/
+allure-report/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Coverage reports
+.coverage
+htmlcov/
+.tox/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.cache/
+
+# pytest specific
+.cache/
+*.pytest_cache/
+__pytest_cache__/
+
+# Selenium and Appium artifacts
+*.session
+screenshots/
+
+# Jupyter Notebook checkpoints (if applicable)
+.ipynb_checkpoints/
+
+# macOS files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows Thumbnails
+Thumbs.db
+
+# Other system files
+*.iml
+*.idea/
