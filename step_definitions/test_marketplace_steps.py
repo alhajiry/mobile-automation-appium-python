@@ -2,6 +2,7 @@ from pytest_bdd import given, when, then, parsers, scenario
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
 from pages.search_page import SearchPage
+from pages.product_page import ProductPage
 
 @scenario("marketplace.feature", "User checkout an item")
 def test_user_login():
@@ -32,3 +33,10 @@ def verify_search_product(driver, product_name):
 def user_click_product(driver, product_name):
     search_page = SearchPage(driver)
     search_page.click_on_product_with_name(product_name)
+
+@then(parsers.parse("I will be redirected to product detail page for '{product_name}'"))
+def verify_product_detail(driver, product_name):
+    product_page = ProductPage(driver)
+    product_detail_visibility, product_name_visibility = product_page.verify_is_on_product_detail_page(product_name)
+    assert product_detail_visibility is not None
+    assert product_name_visibility is not None

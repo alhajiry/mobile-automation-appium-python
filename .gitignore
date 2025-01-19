@@ -68,3 +68,5 @@ Thumbs.db
 # Other system files
 *.iml
 *.idea/
+
+.env
