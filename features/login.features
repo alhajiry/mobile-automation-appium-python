@@ -1,4 +1,0 @@
-Feature: Login to the application
-    
-    Scenario: Login to the application
-        When I click the login button
