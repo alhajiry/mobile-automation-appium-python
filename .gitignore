@@ -69,4 +69,4 @@ Thumbs.db
 *.iml
 *.idea/
 
-.env
+*.env
