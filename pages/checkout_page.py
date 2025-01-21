@@ -14,6 +14,7 @@ class CheckoutPage(BasePage):
         return self.wait_element_contains_text_to_be_visible(CheckoutPageElements.CHECKOUT_PRODUCT_NAME, text)
 
     def click_pay_button(self):
+        self.wait_element_to_be_visible(CheckoutPageElements.CHECKOUT_PAGE_PAY_BUTTON)
         pay_button = self.get_element(CheckoutPageElements.CHECKOUT_PAGE_PAY_BUTTON)
         pay_button.click()
 
@@ -25,3 +26,19 @@ class CheckoutPage(BasePage):
     
     def verify_redirection_to_order_status_page(self):
         return self.wait_element_to_be_visible(CheckoutPageElements.ORDER_STATUS_PAGE)
+    
+    def scroll_to_bottom_of_checkout_page(self):
+        self.scroll_to_end("bottom")
+
+    def remove_payment_promo_restriction_if_exist(self):
+        no_payment_method_btn = self.find_element_if_exists(CheckoutPageElements.CHECKOUT_PAGE_NO_PAYMENT_SELECTED)
+        if no_payment_method_btn:
+            self.get_element(CheckoutPageElements.CHECKOUT_PAGE_CHOOSE_PAYMENT_BUTTON).click()
+            self.wait_element_to_be_visible(CheckoutPageElements.CHECKOUT_PAYMENT_PROMO_RADIO_BUTTON)
+            self.get_element(CheckoutPageElements.CHECKOUT_PAYMENT_PROMO_RADIO_BUTTON).click()
+            self.wait_element_to_be_visible(CheckoutPageElements.CHECKOUT_PAYMENT_METHOD_VIRTUAL_ACCOUNT)
+            self.get_element(CheckoutPageElements.CHECKOUT_PAYMENT_METHOD_VIRTUAL_ACCOUNT).click()
+            self.wait_element_to_be_visible(CheckoutPageElements.CHECKOUT_PAYMENT_METHOD_VIRTUAL_ACCOUNT_BCA)
+            self.get_element(CheckoutPageElements.CHECKOUT_PAYMENT_METHOD_VIRTUAL_ACCOUNT_BCA).click()
+            self.wait_element_to_be_visible(CheckoutPageElements.CHECKOUT_CONTINUE_WITHOUT_PROMO_BTN)
+            self.get_element(CheckoutPageElements.CHECKOUT_CONTINUE_WITHOUT_PROMO_BTN).click()

@@ -28,6 +28,7 @@ class ProductPage(BasePage):
         elif variant_attribute == "capacity":
             element = ProductPageElements.PRODUCT_CONTENT_CAPACITY_VARIANT_SELECTION
 
+        self.wait_element_contains_text_to_be_visible(element, variant_option)
         variant_selection = self.get_element_contains_text(element, variant_option)
         variant_selection.click()
 
